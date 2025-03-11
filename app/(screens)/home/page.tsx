@@ -24,7 +24,7 @@ import { WobbleCard } from "@/components/ui/wobble-card";
 
 export default function Home() {  
   const router = useRouter();
-  const searchParams = useSearchParams ();
+  const searchParams = useSearchParams();
   const pathname = usePathname()
   
   const from = searchParams.get("from");
