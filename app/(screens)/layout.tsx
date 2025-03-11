@@ -1,4 +1,6 @@
 import Header from "@/components/layout/header";
+import { Loader2 } from "lucide-react";
+import { Suspense } from 'react'
 
 export default function Layout({
   children,
@@ -8,9 +10,15 @@ export default function Layout({
   return (
     <div className="flex flex-col min-h-screen">
       <Header isLoggedIn={true} />
-      <div className="flex-1 flex flex-col p-4">
-        {children}
-      </div>
+      <Suspense fallback={(
+        <div className="flex grow justify-center items-center h-full">
+          <Loader2 className="w-10 h-10 animate-spin" />
+        </div>
+      )}>
+        <div className="flex-1 flex flex-col p-4">
+          {children}
+        </div>
+      </Suspense>
     </div>
   );
 }

@@ -22,6 +22,7 @@ import { Dog } from "@/lib/types";
 import { createQueryString } from "@/lib/utils";
 import { WobbleCard } from "@/components/ui/wobble-card";
 
+
 export default function Home() {  
   const router = useRouter();
   const searchParams = useSearchParams();
