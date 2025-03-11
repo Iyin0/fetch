@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner"
 import Providers from "@/app/providers/providers";
+import { Analytics } from "@vercel/analytics/react"
 
 const roboto = Roboto({
   variable: '--font-roboto',
@@ -29,6 +30,7 @@ export default function RootLayout({
           {children}
           <Toaster richColors/>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );

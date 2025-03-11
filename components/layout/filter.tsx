@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
+import { Button } from "@/components/ui/button"
 
 export default function Filter({
   isDataLoading,
@@ -35,6 +36,9 @@ export default function Filter({
   const breeds = searchParams.getAll("breeds[]");
   const sort = searchParams.get("sort");
   const [query, setQuery] = useState(searchParams.toString());
+  const defaultQuery = 'size=24&from=0&sort=breed%3Aasc'
+
+  console.log(query)
 
   const { data: dogBreeds, isLoading: isBreedsLoading } = useQuery({
     queryKey: ["breeds"],
@@ -139,6 +143,7 @@ export default function Filter({
           </div>
         )}
       </div>
+      {query !== defaultQuery && <Button onClick={() => setQuery(defaultQuery)}>Reset</Button>}
     </div>
   )
 }
