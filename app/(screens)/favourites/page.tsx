@@ -46,6 +46,14 @@ export default function Favourites() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [favouriteDogs]);
 
+  if (!favouriteDogs.length) {
+    return (
+      <div className="flex grow justify-center items-center h-full">
+        <p className="text-2xl font-medium">You have not selected any favourite dog</p>
+      </div>
+    )
+  }
+
   if (isLoading) {
     return (
       <div className="flex grow justify-center items-center h-full">

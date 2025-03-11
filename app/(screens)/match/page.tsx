@@ -45,6 +45,14 @@ export default function Match() {
       })
     }
   }, [data])
+
+  if (!favouriteDogs.length) {
+    return (
+      <div className="flex grow justify-center items-center h-full">
+        <p className="text-2xl font-medium">Select your favourite dogs to find your match</p>
+      </div>
+    )
+  }
   
   if (isLoading) {
     return (
