@@ -38,8 +38,6 @@ export default function Filter({
   const [query, setQuery] = useState(searchParams.toString());
   const defaultQuery = 'size=24&from=0&sort=breed%3Aasc'
 
-  console.log(query)
-
   const { data: dogBreeds, isLoading: isBreedsLoading } = useQuery({
     queryKey: ["breeds"],
     queryFn: () => getBreeds(),
