@@ -32,6 +32,7 @@ export default function Filter({
   const [isAgeFilter, setIsAgeFilter] = useState(false);
   const [ageMin, setAgeMin] = useState(0);
   const [ageMax, setAgeMax] = useState(100);
+  const [value, setValue] = useState<string[]>(breeds || [])
 
   const breeds = searchParams.getAll("breeds[]");
   const sort = searchParams.get("sort");
@@ -83,7 +84,6 @@ export default function Filter({
         list={dogBreeds?.data?.map((breed) => ({ value: breed, label: breed })) || []}
         placeholder="Select breed"
         onChange={handleBreedChange}
-        defaultValue={breeds}
       />
       <Select onValueChange={handleSortChange} value={sort?.split(":")[1]}>
         <SelectTrigger className="w-fit">
